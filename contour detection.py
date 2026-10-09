@@ -26,6 +26,7 @@ def border_follow(img,current,direction,numbers,parent,border_type,border):
 
     while True:
         save=None
+        oldDirection=direction
         while True:
             next=list(current)
             if direction==0:
@@ -54,7 +55,8 @@ def border_follow(img,current,direction,numbers,parent,border_type,border):
         direction += 2
         direction %= 4
 
-        contour.append(list(current))
+        if oldDirection!=direction:
+            contour.append(list(current))
         if current==start:
             break
 
@@ -96,13 +98,13 @@ for contour in contours:
         contour_pixels[column,row]=255
 
 # Color the contour pixels based on their values
-rows,cols=img.shape
-for i in range(0,rows - 1):
-    for j in range(0,cols - 1):
-        if img[i][j]>1:
-            contour_pixels[j,i]=int(img[i][j])*10 + 128
-        elif img[i][j]<0:
-            contour_pixels[j,i]=int(-img[i][j])*10
+# rows,cols=img.shape
+# for i in range(0,rows - 1):
+#     for j in range(0,cols - 1):
+#         if img[i][j]>1:
+#             contour_pixels[j,i]=int(img[i][j])*10 + 128
+#         elif img[i][j]<0:
+#             contour_pixels[j,i]=int(-img[i][j])*10
 
 output_path=sys.argv[2]
 contour_image.save(output_path)
