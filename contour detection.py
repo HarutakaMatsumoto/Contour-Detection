@@ -95,6 +95,15 @@ for contour in contours:
     for row,column in contour:
         contour_pixels[column,row]=255
 
+# Color the contour pixels based on their values
+rows,cols=img.shape
+for i in range(0,rows - 1):
+    for j in range(0,cols - 1):
+        if img[i][j]>1:
+            contour_pixels[j,i]=int(img[i][j])*10 + 128
+        elif img[i][j]<0:
+            contour_pixels[j,i]=int(-img[i][j])*10
+
 output_path=sys.argv[2]
 contour_image.save(output_path)
 print(f"Saved contour image to {output_path}")

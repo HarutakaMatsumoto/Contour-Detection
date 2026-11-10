@@ -4,4 +4,4 @@ The function raster_scan() requires a zero-padded binary input image.
 The outputs are the contour coordinates, hierarchy of the contours and the corresponding border types. The images are assumed to be four-connected.
 # Results
 ![](test_image.jpg)
-![](test_result.jpg)
+![](test_result.png)

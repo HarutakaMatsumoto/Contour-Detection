@@ -13,7 +13,7 @@
             "console": "integratedTerminal",
             "args": [
                 "test_image.jpg",
-                "test_result.jpg"
+                "test_result.png"
             ]
         }
     ]
